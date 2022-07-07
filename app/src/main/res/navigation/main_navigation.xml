@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.schoters.newsapp.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/headlineFragment"
+        android:name="com.schoters.newsapp.headline.HeadlineFragment"
+        android:label="@string/headline"
+        tools:layout="@layout/fragment_headline" >
+        <action
+            android:id="@+id/action_headlineFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.schoters.newsapp.saved.SavedFragment"
+        android:label="@string/saved"
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_savedFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="com.schoters.newsapp.content.ContentFragment"
+        android:label="fragment_content"
+        tools:layout="@layout/fragment_content" >
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="news"
+            app:argType="com.schoters.core.domain.model.News" />
+    </fragment>
+</navigation>
